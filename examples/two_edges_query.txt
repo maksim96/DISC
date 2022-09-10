@@ -1,0 +1,3 @@
+t1 A-B;
+t2 A-B;B-C;
+t3 A-B;B-C;B-D;

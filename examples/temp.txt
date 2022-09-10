@@ -1,0 +1,8 @@
+t2 A-B;
+t3 A-B;B-C;
+t4 A-B;B-C;C-D;
+t5 A-B;B-C;C-D;D-E;
+t6 A-B;B-C;C-D;D-E;E-F;
+t7 A-B;B-C;C-D;D-E;E-F;F-G;
+t8 A-B;B-C;C-D;D-E;E-F;F-G;G-H;
+t9 A-B;B-C;C-D;D-E;E-F;F-G;G-H;H-I;
