@@ -5,12 +5,12 @@ version := "0.1"
 scalaVersion := "2.11.12"
 
 /*Dependency*/
-resolvers += "Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven"
+resolvers += "Spark Packages Repo" at "http://repos.spark-packages.org"
 
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.3" % "provided"
-libraryDependencies += "org.apache.spark" %% "spark-core" % "2.4.3" % "provided"
-libraryDependencies += "org.apache.spark" %% "spark-graphx" % "2.4.3" % "provided"
-libraryDependencies += "org.apache.spark" %% "spark-mllib" % "2.4.3" % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.3" //% "provided"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "2.4.3" //% "provided"
+libraryDependencies += "org.apache.spark" %% "spark-graphx" % "2.4.3" //% "provided"
+libraryDependencies += "org.apache.spark" %% "spark-mllib" % "2.4.3" //% "provided"
 libraryDependencies += "com.joptimizer" % "joptimizer" % "5.0.0"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.3" % "test"
 libraryDependencies += "net.sf.trove4j" % "trove4j" % "3.0.3"
