@@ -66,6 +66,6 @@ object QueryType extends Enumeration {
 
 object ExecutionMode extends Enumeration {
   type ExecutionMode = Value
-  val ShowPlan, Count, Result, Exec, Debug =
+  val CountReturn, ShowPlan, Count, Result, Exec, Debug =
     Value
 }

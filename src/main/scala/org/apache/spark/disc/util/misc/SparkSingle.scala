@@ -6,7 +6,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 /**
   * Simple Class which wrap around SparkContext, and SparkSession for easy testing
   */
-object SparkSingle {
+object  SparkSingle {
 
   private val conf = getConf()
 
