@@ -1,7 +1,9 @@
 package org.apache.spark.disc
 
+import org.apache.spark.disc.SubgraphCounting.countOnePatternOneGraph
 import org.apache.spark.disc.util.misc.{ExecutionMode, QueryType}
 
+import java.io.{BufferedWriter, File, FileWriter}
 import scala.io.Source
 
 object BatchSubgraphCounting{
@@ -69,16 +71,34 @@ object BatchSubgraphCounting{
             .map(f => f.split("\\s"))
             .map(f => (f(0), f(1)))
 
-        queries.foreach { case (queryName, query) =>
-          //      CountTableCache.reset()
-          val outputPath = outputPrefix + queryName + ".csv"
+        var counts = ""
+
+        val dataFile = new File(data)
+        val outputPath = outputPrefix + dataFile.getName().split("\\.")(0) + "_embedding.txt"
+
+        for (patternGraphID <- 0 to queries.size - 1) {
+          val query = queries(patternGraphID)
           val command1 =
             s"-q $query -d ${data} -o ${outputPath} -e $executionMode -u ${queryType} -c ${orbit} -p $platform"
 
           SubgraphCounting.main(command1.split("\\s"))
+
+          val count = countOnePatternOneGraph(command1.split("\\s"))
+          counts = counts + count.toString()
+          if (patternGraphID < queries.size -1) {
+            counts = counts + "\n"
+          }
+
+
         }
 
-      case _ => // arguments are bad, error message will have been displayed
+        val file = new File(outputPath)
+        val bw = new BufferedWriter(new FileWriter(file))
+        bw.write(counts)
+        bw.close()
+
+
+
     }
   }
 }
